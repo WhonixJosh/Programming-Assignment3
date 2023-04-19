@@ -185,7 +185,51 @@ public class Main {
     public static void main(String[] args) {
         HashMap<Integer, Boolean> visited = new HashMap<>();    //Keeps track of whether or not a vertex has been visited
 
+        Graph G = new Graph(18);
 
-       //System.out.println(G.toString());  Do not uncomment until graph is complete
+        G.addEdge(0, 1);
+        G.addEdge(0, 4);
+        G.addEdge(0, 7);
+        G.addEdge(0, 14);
+
+        G.addEdge(1, 2);
+        G.addEdge(1, 5);
+
+        G.addEdge(2, 6);
+
+        G.addEdge(3, 6);
+
+        G.addEdge(5, 6);
+        G.addEdge(5, 8);
+        G.addEdge(5, 9);
+
+        G.addEdge(6, 9);
+        G.addEdge(6, 10);
+
+        G.addEdge(7, 11);
+        G.addEdge(7, 14);
+
+        G.addEdge(8, 12);
+
+        G.addEdge(9, 10);
+
+        G.addEdge(10, 17);
+
+        G.addEdge(11, 14);
+        G.addEdge(11, 15);
+        G.addEdge(11, 12);
+
+        G.addEdge(12, 13);
+        G.addEdge(12, 15);
+        G.addEdge(12, 16);
+
+        G.addEdge(13, 16);
+        G.addEdge(13, 17);
+
+        G.addEdge(14, 15);
+
+
+
+       System.out.println(G.toString());  //Do not uncomment until graph is complete
     }
 }
