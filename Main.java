@@ -206,9 +206,30 @@ public class Main {
         }
     }
 
+    public static void localMinimum(ArrayList<Integer> elems) {}
+
     public static void main(String[] args) {
         HashMap<Integer, Boolean> visited = new HashMap<Integer, Boolean>();    //Keeps track of whether or not a vertex has been visited
+        
+        ArrayList<Integer> elems = new ArrayList<>();
 
+        elems.add(4);
+        elems.add(-1);
+        elems.add(0);
+        elems.add(-2);
+        elems.add(3);
+        elems.add(5);
+        elems.add(8);
+        elems.add(6);
+        elems.add(21);
+        elems.add(-60);
+        elems.add(42);
+        elems.add(5);
+        elems.add(422);
+        elems.add(3);
+        elems.add(-70);
+        elems.add(5);
+        
 
         Graph G = new Graph(18);
 
