@@ -17,6 +17,8 @@ package com.company;
 import java.io.*;
 import java.util.*;
 
+import javax.swing.text.StyledEditorKit.BoldAction;
+
 
 
 class LinkedList<Integer> implements Iterable<Integer> {
@@ -181,11 +183,39 @@ class Graph {
 
 
 }
+
 public class Main {
+
+    public static void depthFirstSearch(HashMap<Integer, Boolean> visit, Graph g) {
+        for (int i = 0; i < g.V(); i++) {
+            if(visit.get(i) == false ){
+                System.out.println(i);
+                visit.put(i, true);
+                dfs(visit, g.adjList(i), g);
+            }
+        }
+    }
+
+    public static void dfs(HashMap<Integer, Boolean> visit, Iterable<Integer> adjacent, Graph g) {
+        for (Integer vertex : adjacent) {
+            if(visit.get(vertex) == false){
+                System.out.println(vertex);
+                visit.put(vertex, true);
+                dfs(visit, g.adjList(vertex), g);
+            }
+        }
+    }
+
     public static void main(String[] args) {
-        HashMap<Integer, Boolean> visited = new HashMap<>();    //Keeps track of whether or not a vertex has been visited
+        HashMap<Integer, Boolean> visited = new HashMap<Integer, Boolean>();    //Keeps track of whether or not a vertex has been visited
+
 
         Graph G = new Graph(18);
+
+        for(int i = 0; i < G.V(); i++){
+            visited.put(i,false);
+        }
+        
 
         G.addEdge(0, 1);
         G.addEdge(0, 4);
@@ -231,5 +261,7 @@ public class Main {
 
 
        System.out.println(G.toString());  //Do not uncomment until graph is complete
+
+       depthFirstSearch(visited, G);
     }
 }
