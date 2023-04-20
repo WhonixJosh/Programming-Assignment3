@@ -188,8 +188,8 @@ public class Main {
 
     public static void depthFirstSearch(HashMap<Integer, Boolean> visit, Graph g) {
         for (int i = 0; i < g.V(); i++) {
-            if(visit.get(i) == false ){
-                System.out.println(i);
+            if(visit.get(i) == false){
+                if(i % 2 == 0){System.out.println(i);}
                 visit.put(i, true);
                 dfs(visit, g.adjList(i), g);
             }
@@ -199,7 +199,7 @@ public class Main {
     public static void dfs(HashMap<Integer, Boolean> visit, Iterable<Integer> adjacent, Graph g) {
         for (Integer vertex : adjacent) {
             if(visit.get(vertex) == false){
-                System.out.println(vertex);
+                if(vertex % 2 == 0){System.out.println(vertex);}
                 visit.put(vertex, true);
                 dfs(visit, g.adjList(vertex), g);
             }
