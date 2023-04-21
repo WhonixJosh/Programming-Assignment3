@@ -206,12 +206,21 @@ public class Main {
         }
     }
 
-    public static void localMinimum(ArrayList<Integer> elems) {}
+    public static int localMinimum(List<Integer> elems) {
+        int middle = elems.size() / 2;
+
+        if(middle ==0 || elems.get(middle -1) > elems.get(middle) && middle == elems.size()-1 ||
+           elems.get(middle) < elems.get(middle + 1)){return middle; }
+        
+        else if(middle > 0 && elems.get(middle -1 ) < elems.get(middle)){return localMinimum(elems.subList(0, middle + 1)); }
+        
+        return localMinimum(elems.subList(middle, elems.size()- 1));
+    }
 
     public static void main(String[] args) {
         HashMap<Integer, Boolean> visited = new HashMap<Integer, Boolean>();    //Keeps track of whether or not a vertex has been visited
         
-        ArrayList<Integer> elems = new ArrayList<>();
+        List<Integer> elems = new ArrayList<Integer>();
 
         elems.add(4);
         elems.add(-1);
@@ -283,6 +292,11 @@ public class Main {
 
        System.out.println(G.toString());  //Do not uncomment until graph is complete
 
+       System.out.println("DFS Path:");
        depthFirstSearch(visited, G);
+
+       int localmin = localMinimum(elems);
+
+       System.out.printf("\nLocal Minimum Index: %d", localmin);
     }
 }
