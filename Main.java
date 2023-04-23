@@ -217,6 +217,24 @@ public class Main {
         return localMinimum(elems.subList(middle, elems.size()- 1));
     }
 
+    public static int exponent(int base, int power) {
+        if(power == 0){
+            return 1;
+        }
+        return base * exponent(base, power-1);
+    }
+
+    public static int exponentiateFaster(int base, int power){
+        if(power == 0){return 1;}
+        if(power % 2 != 0){return base * exponentiateFaster(base, (((power-1)/2) * ((power-1)/2)) );}
+        else{return exponentiateFaster(base, ((power/2) * (power/2)) );}
+    }
+
+    public static int exponentAddition(int base, int power){
+        if(power == 0){return 1;}
+        return 4 * exponent(base, power-1);
+    }
+
     public static void main(String[] args) {
         HashMap<Integer, Boolean> visited = new HashMap<Integer, Boolean>();    //Keeps track of whether or not a vertex has been visited
         
@@ -298,5 +316,25 @@ public class Main {
        int localmin = localMinimum(elems);
 
        System.out.printf("\nLocal Minimum Index: %d", localmin);
+
+       Scanner keyboard = new Scanner(System.in);
+       System.out.println("\nEnter a base: ");
+       int inbase = keyboard.nextInt();
+       System.out.println("Now, enter a power to raise the base to ");
+       int inpower = keyboard.nextInt();
+
+       keyboard.close();
+
+       int result = exponent(inbase, inpower);
+       System.out.printf("Result: %d", result);
+
+       int four = 4;
+       int power = 3;
+       int fourtoapower = exponentiateFaster(four, power);
+       int fourtoapowerarithmetic = exponentAddition(four, power);
+
+       System.out.print("\n (fast exponentiation) Four raised to a power two equals: " + fourtoapower);
+       System.out.print("\n (arithmetic exponentiation) Four raised to a power two equals: " + fourtoapowerarithmetic);
+
     }
 }
