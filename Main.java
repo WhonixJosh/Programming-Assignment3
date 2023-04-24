@@ -333,8 +333,8 @@ public class Main {
        int fourtoapower = exponentiateFaster(four, power);
        int fourtoapowerarithmetic = exponentAddition(four, power);
 
-       System.out.print("\n (fast exponentiation) Four raised to a power two equals: " + fourtoapower);
-       System.out.print("\n (arithmetic exponentiation) Four raised to a power two equals: " + fourtoapowerarithmetic);
+       System.out.print("\n (fast exponentiation) Four raised to a power " + power +  " equals: " + fourtoapower);
+       System.out.print("\n (arithmetic exponentiation) Four raised to a power " + power + " equals: " + fourtoapowerarithmetic);
 
     }
 }
